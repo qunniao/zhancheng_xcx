@@ -1,0 +1,22 @@
+<my-component my-property='{{bb}}' class='daohang'/>
+<view class="header">
+  <view class="ad_popError" wx:if="{{popErrorMsg}}">{{popErrorMsg}}</view>
+  <text>输入您的需求，我们将稍后给您提交一份报价清单</text>
+  <textarea bindinput="contentInput"></textarea>
+</view>
+
+<view class="contact">
+  <text>联系人</text>
+  <input type="text" placeholder="请输入您的姓名" bindinput="contactInput" placeholder-style='color:#898888'></input>
+</view>
+
+<view class="contactPhone">
+  <text>联系电话</text>
+  <input type="text" placeholder="请输入正确的联系方式" bindinput="contactPhoneInput" placeholder-style='color:#898888'></input>
+</view>
+
+<view class="submit">
+  <button bindtap="submit">提交需求</button>
+</view>
+
+<view class="dibu"></view>

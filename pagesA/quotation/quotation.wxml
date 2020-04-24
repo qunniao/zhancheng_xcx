@@ -1,0 +1,38 @@
+<my-component my-property='{{bb}}' id="website"/>
+<!-- <view class="header" bindtap="customized">
+  <text>没有您要的功能？ 点这里 >></text>
+</view> -->
+
+<view class="{{isIPX ? 'container-IPX' : 'container'}}">
+  <view class='left'>
+    <scroll-view class='leftScroll' scroll-y>
+      <block wx:for="{{list}}" wx:key="list">
+        <view bindtap='clickScroll' class="{{toView=='a'+item.id?'active':''}}" data-id="{{'a'+item.id}}">
+          <text class='diyige'>{{item.typeName}}</text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class='right'>
+    <scroll-view class='rightScroll' scroll-y scroll-into-view="{{toView}}" scroll-with-animation="true">
+      <checkbox-group bindchange="checkboxChange">
+          <block wx:for="{{lista}}" wx:key="list">
+              <view class='youbian' bindtap='clickScroll' id="{{'a'+item.id}}">
+                <view class='buzhidao' wx:for="{{item.category}}" wx:for-item="category">
+                  <text class='youtitle'>{{category.typeName}}</text>
+                    <view class='dupoxuan'>
+                      <checkbox value='{{moduleList.price}},{{moduleList.id}}' checked="{{item.checked}}" wx:for="{{category.moduleList}}" wx:for-item="moduleList">{{moduleList.moduleName}}</checkbox>
+                    </view>
+                </view>
+              </view>
+          </block>
+      </checkbox-group>
+    </scroll-view>
+  </view>
+</view>
+<!-- 底部 -->
+  <view class="botoom">
+    <text class="text">已选{{checkedNum}}项功能</text>
+    <button bindtap="totalPrice">计算总价</button>
+  </view>
+

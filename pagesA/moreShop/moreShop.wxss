@@ -1,0 +1,174 @@
+page{
+  background: #EFECEF;
+}
+
+.header{
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.header .price view{
+  font-size: 28rpx;
+  color: #8B8989;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+}
+
+.gotop{
+  width: 25rpx;
+  height: 25rpx;
+  position: relative;
+  top:8rpx;
+  left: 4rpx;
+}
+
+.jt{
+  display: flex;
+  position: relative;
+  top: -30rpx;
+  left: 10rpx;
+}
+
+.top{
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 6px solid #8B8989;
+  position: relative;
+  top: 18rpx;
+}
+
+.bottom{
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 6px solid #8B8989;
+  position: relative;
+  top: 50rpx;
+  left: -16rpx;
+}
+
+.fl{
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #8B8989;
+  font-weight: bold;
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.fl text{
+  margin-left: 30rpx;
+}
+
+.leftItem{
+  width: 45%;
+  float: left;
+  margin-top: 10rpx;
+  margin-left: 3.3%;
+  border-radius: 15rpx;
+  background: #fff;
+}
+
+.leftItem:last-child{
+  margin-bottom: 30rpx;
+}
+
+.leftItem image{
+  width: 100%;
+  height: 300rpx;
+  border-top-left-radius: 15rpx;
+  border-top-right-radius: 15rpx;
+  margin-bottom: 20rpx;
+}
+
+.leftTitle{
+  padding-left: 30rpx;
+}
+
+.leftItem text{
+  font: 32rpx;
+  letter-spacing: 2rpx;
+  font-weight: bold;
+}
+
+.price{
+  display: flex;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-left: 30rpx;
+}
+
+.original_price{
+  display: flex;
+  color: #cdcdcd;
+  margin-left: 30rpx;
+  font-size: 32rpx;
+}
+
+.money{
+  margin-left: -10rpx;
+  text-decoration: line-through;
+}
+
+.rightList{
+  width: 47%;
+  margin-left: 2%;
+  padding-bottom: 20rpx;
+}
+
+.rightItem{
+  width: 100%;
+  margin-top: 10rpx;
+  border-radius: 15rpx;
+  background: #fff;
+}
+
+.rightItem image{
+  width: 100%;
+  height: 300rpx;
+  border-top-left-radius: 15rpx;
+  border-top-right-radius: 15rpx;
+  margin-bottom: 20rpx;
+}
+
+.rightItem text{
+  font: 32rpx;
+  letter-spacing: 2rpx;
+  font-weight: bold;
+  padding-left: 10rpx;
+}
+
+.title_zj{
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
+}
+
+#zj{
+  width: 140rpx;
+  padding: 5rpx 0;
+  color: red;
+  border: 1px solid red;
+  border-top-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+}
+
+.rightItem .price{
+  margin-left: 30rpx;
+}
+
+.dibu{
+  width: 100%;
+  height: 20rpx;
+}
+
+#flList .active{
+  color: #307BF6;
+  border-bottom: 2px solid #307BF6;
+}

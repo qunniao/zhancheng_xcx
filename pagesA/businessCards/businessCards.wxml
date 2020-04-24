@@ -1,0 +1,52 @@
+<my-component my-property='{{bb}}' /> 
+<form>
+  <view class="firstForm">
+    <view class="edit-list" bindtap='changeAvatar'>
+  　　<text class="list-name list-first">选择形象照</text>
+  　　　<view class="edit-righr-bar">
+  　　　<image class="head-portrait" src="{{personImage}}"></image>
+  　　</view>
+    </view>
+    <view class="input" id="first">
+      <text>姓名</text>
+      <input placeholder="请输入姓名" value='{{username}}' placeholder-style="color:#C1BFBF;" bindblur="username"></input>
+    </view>
+    <view class="input">
+      <text>微信</text>
+      <input placeholder="请输入微信" value='{{wechat}}' placeholder-style="color:#C1BFBF;" bindinput="wechat"></input>
+    </view>
+    <view class="input">
+      <text>手机</text>
+      <input type="text" value='{{phone}}' bindinput="phone"></input>
+      <view class='arrow'></view>
+    </view>
+    <view class="input">
+      <text>邮箱</text>
+      <input type="text" value='{{email}}' bindinput="email"></input>
+      <view class='arrow'></view>
+    </view>
+  </view>
+
+  <view class="firstForm">
+    <view class="input" id="first">
+      <text>职业</text>
+      <input type="text" value='{{occupation}}' bindinput="occupation"></input>
+      <view class='arrow'></view>
+    </view>
+    <view class="input">
+      <text>公司</text>
+      <input placeholder="请输入公司名称" value='{{company}}' placeholder-style="color:#C1BFBF;" bindinput="company"></input>
+    </view>
+    <view class="input" id="first" bindtap="getLocation">
+      <text>公司地址</text>
+      <text class="address">{{address}}</text>
+      <view class='arrow'></view>
+    </view>
+    <view class="input" bindtap="gerenjianjie">
+      <text>个人简介</text>
+      <view class="address">{{introText}}</view>
+      <view class='arrow'></view>
+    </view>
+    <button bindtap="submit">确定</button>
+  </view>
+</form>

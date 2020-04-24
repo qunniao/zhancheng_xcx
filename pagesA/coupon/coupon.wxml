@@ -1,0 +1,19 @@
+<my-component my-property='{{bb}}' /> 
+<view class="couponItem" wx:for="{{coupon}}">
+  <image src="../../res/imgs/coupon.png"></image>
+  <view class="coupon_content">
+    <view class="price">
+      <view class="yhPrice">
+        <text class="amount">{{item.money}}</text>
+        <text class="yuan">元</text>
+      </view>
+      <text class="realPrice">满￥{{item.minMoney}}可用</text>
+    </view>
+    <view class="content">
+      <text class="co_content">{{item.content}}</text>
+      <button>立即使用</button>
+    </view>
+  </view>
+  <text class="validity">有效期 {{item.useDateStart}} 至 {{item.useDateEnd}}</text>
+</view>
+

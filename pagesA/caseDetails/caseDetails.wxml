@@ -1,0 +1,45 @@
+<my-component my-property='{{bb}}' id="website" /> 
+<view class="{{isIPX ? 'contentaaaaa-IPX' : 'contentaaaaa'}}">
+  <view class="header">
+    <swiper class='u-wrp-bnr' autoplay='true' interval='5000' duration='1000' circular='true'>
+      <block wx:for="{{bnrUrl}}" wx:for-index="index">
+        <swiper-item>
+          <image src='{{item}}' mode='widthFix' class='titleimg' bindtap='previewImg'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="name_team">
+      <view class='price_title'>
+        <text class='casePrice'>￥{{price}}</text>
+        <text class="name">{{title}}</text>
+      </view>
+      <view class="like_collection">
+        <!-- <image src="../../res/imgs/shoucang.png" class="conlection" catchtap='handleCollection' wx:if="{{!isCollected}}"></image>
+        <image src="../../res/imgs/shoucang2.png" class="conlection" catchtap='handleCollection' wx:if="{{isCollected}}"></image> -->
+        <view class="like" catchtap='handleLike'>
+          <image src="../../res/imgs/eyes.png"></image>
+          <text>{{watchNum}}</text>
+        </view>
+        <view class="like" catchtap='handleLike'>
+          <image src="../../res/imgs/like.png" wx:if="{{!isLike}}"></image>
+          <image src='../../res/imgs/like1.png' wx:if="{{isLike}}"></image> 
+          <text>{{likeNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='parameter'>
+    <view class="drawer_content" wx:for='{{caseAttrs}}' wx:for-item='caseAttrs'>
+      <view class="drawer_title">{{caseAttrs.attrName}}</view>
+      <text class="line">{{caseAttrs.attrValue}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <text>图文详情</text>
+    <view wx:for="{{mobileDetail}}">
+      <image src='{{item}}' mode='widthFix' data-index="{{index}}" bindtap='previewImga'></image>
+    </view>
+  </view>
+</view>

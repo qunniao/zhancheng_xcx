@@ -1,0 +1,19 @@
+<my-component my-property='{{cc}}' class="plma"/>
+<view class='addressList' wx:for="{{address}}">
+  <view class='name_phone_address' bindtap='goConfirm' data-id='{{item.id}}'>
+    <view class='name_phone'>
+      <text class='name'>{{item.contactName}}</text>
+      <text class='phone'>{{item.contactPhone}}</text>
+    </view>
+    <view>
+      <text class='moren' wx:if="{{item.isDefaultAddress==true}}">默认</text>
+      <text class='address'>{{item.contactAddress}}</text>
+    </view>
+  </view>
+  <view class='edit' bindtap='edit' data-id='{{item.id}}'>
+    <text>编辑</text>
+  </view>
+</view>
+<view class='bottomButton'>
+  <button bindtap='goAddress'>+ 新建收货地址</button>
+</view>

@@ -1,0 +1,31 @@
+<my-component my-property='{{bb}}' /> 
+<view class="header">
+  <view class="fl" id="flList">
+    <text class='{{size==0?"active":""}}' catchtap='changeFl' data-size='0'>全部</text>
+    <text wx:for="{{fenlei}}" class='{{size==item.tid?"active":""}}' catchtap='changeFl' data-size='{{item.tid}}'>{{item.typeName}}</text>
+  </view>
+  <view class="price">
+    <view bindtap="sort">
+      <text>价格</text>
+      <image src='{{images}}' class="gotop"></image>
+    </view>
+    <view bindtap="sort1">
+      <text>销量</text>
+      <image src='{{images1}}' class="gotop"></image>
+    </view>
+  </view>
+</view>
+
+<view class="leftItem" wx:for="{{rightList}}" bindtap="goDetails" data-postad="{{item.pid}}">
+  <image src="{{item.url?item.url:'../../res/imgs/bangonghuanjing1_Jc.jpg'}}"></image>
+  <view class="title_zj">
+    <text>{{item.productName}}</text>
+  </view>
+  <view class="price">
+    <text>￥{{item.price}}</text>
+    <view class="original_price">
+      <text>￥</text>
+      <text class="money">{{item.market_price}}</text>
+    </view>
+  </view>
+</view>

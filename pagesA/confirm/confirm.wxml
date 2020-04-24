@@ -1,0 +1,63 @@
+<my-component my-property='{{bb}}' /> 
+<view class="address" bindtap='goAddress' style='display:{{bdisplay}}'>
+  <text>选择收获地址</text>
+  <text class="right"></text>
+</view>
+<view class='name_phone_address' bindtap='goAddress' style='display:{{adisplay}}'>
+  <image src="../../res/imgs/firmAddress.png"></image>
+  <view class='ri'>
+    <view class='name_phone'>
+      <text class='name'>{{contact}}</text>
+      <text class='phone'>{{phone}}</text>
+    </view>
+    <view class='qwe'>
+      <text class='addr'>
+        {{address}}
+      </text>
+      <text class="rightb"></text>
+    </view>
+  </view>
+</view>
+<view class="orderItem" wx:for="{{shanpin}}">
+  <view class="img_name_price">
+    <image src="{{item.tupian}}"></image>
+    <text class="name">{{item.name}}</text>
+    <text class="num">x{{item.num}}</text>
+    <text class="price">￥{{item.money}}</text>
+  </view>
+  <view class="coupon" bindtap="powerDrawer" data-statu="open">
+    <text class="coponName">优惠券</text>
+    <view class="rigth">
+      <image src="../../res/imgs/coupon (3).png"></image>
+      <text>0个优惠券可用</text>
+    </view>
+      <text class="righta"></text>
+  </view>
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_content">
+      <view class="couponItem">
+        <view class="left">
+          <text class="amount">500元</text>
+          <text class="realPrice">满9000可用</text>
+        </view>
+        <view class="righ">
+          <text>限2019-08-21至2019-08-21使用</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="totalPrice">
+    <view class="price">
+      <text>小计 ￥</text>
+      <text class="money">{{item.totalPrice}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="payment">
+  <text>{{totalPrice}}</text>
+  <text id="offer">已优惠￥0</text>
+  <text id="pay" bindtap="payment">去支付</text>
+</view>

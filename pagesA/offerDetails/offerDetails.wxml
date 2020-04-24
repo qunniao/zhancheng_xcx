@@ -1,0 +1,34 @@
+<my-component my-property='{{bb}}' class="daohang"/>
+<view class="result">
+  <view class="resultRitle">
+    <text class="one"></text>
+    <text class="bjjg">报价结果</text>
+    <text class="one"></text>
+  </view>
+  <view class="xiangmu">
+    <view class="leiming">
+      <text>项目类型</text>
+      <text>： {{typeName}}</text>
+    </view>
+  </view>
+  <view class="xiangmu">
+    <view class="leiming">
+      <text class="secound">总 价 格</text>
+      <text>： {{price}}元</text>
+    </view>
+  </view>
+  <view class="xiangmu">
+    <view class="leiming" id="third">
+      <text>开发工期</text>
+      <text>： {{time}}个工作日</text>
+    </view>
+  </view>
+  <view class="resultRitle">
+    <text class="one"></text>
+    <text class="bjjg">包含功能</text>
+    <text class="one"></text>
+  </view>
+  <view class="section">
+    <view wx:for="{{modules}}">{{item.moduleName}}</view>
+  </view>
+</view>

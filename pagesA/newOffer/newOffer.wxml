@@ -1,0 +1,22 @@
+<my-component my-property='{{bb}}' class="component"/> 
+<view class="offerItem" wx:for="{{offer}}" data-id="{{item.orderModuleId}}" bindtap='goOfferDetails'>
+  <view class="image_name_time">
+    <image src="{{item.cover?item.cover:'../../res/imgs/touxaing.jpeg'}}"></image>
+    <text class="name">{{item.nickName}}</text>
+    <text class="time">{{item.gmtCreate}}</text>
+  </view>
+  <view class="leimu_num_price">
+    <view class="leimu">
+      <text>类目：{{item.productName}}</text>
+    </view>
+    <view class="num">
+      <text>功能数量：</text>
+      <text id='number'>{{item.num}}</text>
+      <text>个</text>
+    </view>
+    <view class="price">
+      <text>报价：</text>
+      <text id='number'>{{item.totalPrice}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+<view class="header">
+  <image src="../../res/imgs/question.png"></image>
+</view>
+
+<view class="section">
+  <view class="number">
+    <view class="no"></view>
+    <text class="num">NO.1</text>
+    <view class="question">
+      <image src="../../res/imgs/Q.png"></image>
+      <text class="sjx"></text>
+      <text class="wenti">为什么自助报价的价格与实际开发价格不一致呢？</text>
+    </view>
+    <view class="anser">
+      <image src="../../res/imgs/A.png"></image>
+      <text class="ysjx"></text>
+      <text class="daan">我们会按照客户自助报价的功能来开发、客户如果后期增加新的功能、将会增加相应的开发费用、所以导致最后价格与自助报价不一致</text>
+    </view>
+  </view>
+
+  <view class="number">
+    <view class="no"></view>
+    <text class="num">NO.2</text>
+    <view class="question">
+      <image src="../../res/imgs/Q.png"></image>
+      <text class="sjx"></text>
+      <text class="wenti">为什么自助报价的价格与实际开发价格不一致呢？</text>
+    </view>
+    <view class="anser">
+      <image src="../../res/imgs/A.png"></image>
+      <text class="ysjx"></text>
+      <text class="daan">我们会按照客户自助报价的功能来开发、客户如果后期增加新的功能、将会增加相应的开发费用、所以导致最后价格与自助报价不一致</text>
+    </view>
+  </view>
+</view>

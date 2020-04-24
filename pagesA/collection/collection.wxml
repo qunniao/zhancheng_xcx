@@ -1,0 +1,43 @@
+<my-component my-property='{{bb}}' />
+<view class="header">
+  <my-component my-property='{{cc}}' class="plma"/> 
+  <view class="flex"> 
+    <view class="nav_link" wx:key='*this' wx:for="{{navData}}"> 
+        <view bindtap='tabbar' data-current="{{item.current}}" class="ppp"> 
+          <view class="center_content {{item.current == current?'tabbar_select':'tabbar_unselect'}}"> 
+            <text class='{{num==item.id?"active":""}}' data-num='{{item.id}}'>{{item.text}}</text>
+          </view> 
+        </view> 
+    </view> 
+  </view> 
+</view>
+
+<view wx:if="{{current==1}}">
+  <view class="collectionItem" wx:for="{{collection}}">
+    <image src="{{item.cover}}" class="titleImg"></image>
+    <view class="title_period_price">
+      <text class="title">{{item.name}}</text>
+      <text class="period">{{item.period}}</text>
+      <view class="price_collection">
+        <text class="price">￥{{item.price}}</text>
+      </view>
+      <image catchtap='onCollectionTap' wx:if="{{item.isCollection===false}}" src="../../res/imgs/shoucang.png" class="shoucang" data-cid='{{item.cid}}'></image>
+      <image wx:if="{{item.isCollection===true}}" catchtap='onCollectionTap' src="../../res/imgs/shoucang2.png" class="shoucang" data-cid='{{item.cid}}'></image>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{current == 2}}">
+  <view class="collectionItem" wx:for="{{collection}}">
+    <image src="{{item.cover}}" class="titleImg"></image>
+    <view class="title_period_price">
+      <text class="title">{{item.name}}</text>
+      <text class="period">{{item.period}}</text>
+      <view class="price_collection">
+        <text class="price">￥{{item.price}}</text>
+      </view>
+      <image catchtap='onCollectionTap' wx:if="{{item.isCollection===false}}" src="../../res/imgs/shoucang.png" class="shoucang" data-cid='{{item.cid}}'></image>
+      <image wx:if="{{item.isCollection===true}}" catchtap='onCollectionTap' src="../../res/imgs/shoucang2.png" class="shoucang" data-cid='{{item.cid}}'></image>
+    </view>
+  </view>
+</view>

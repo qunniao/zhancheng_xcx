@@ -1,0 +1,491 @@
+<!--index.wxml--> 
+<!-- 底部选择fix_nav_wp --> 
+<view class="flex {{isIPX ? 'fix_nav_wp-IPX' : 'fix_nav_wp'}}"> 
+  <view class="nav_link" wx:key='*this' wx:for="{{navData}}"> 
+ 
+      <view bindtap='tabbar' data-current="{{item.current}}" class="{{isIPX ? 'plmab-IPX' : 'plmab'}}"> 
+        <button wx:if="{{item.current < 4}}" class='tabbarButton' hover-class="btn-hover">
+          <view  class='center_content'> 
+            <image src='{{item.current == current?item.selectedIconPath:item.iconPath}}'/> 
+          </view> 
+          <view class="center_content {{item.current == current?'tabbar_select':'tabbar_unselect'}}"> 
+            <text>{{item.text}}</text>
+          </view>
+        </button> 
+        <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" wx:if="{{item.current == 4}}" hover-class="btn-hover" class='tabbarButton'>
+          <view  class='center_content'> 
+            <image src='{{item.current == current?item.selectedIconPath:item.iconPath}}'/> 
+          </view> 
+          <view class="center_content {{item.current == current?'tabbar_select':'tabbar_unselect'}}"> 
+            <text>{{item.text}}</text>
+          </view> 
+        </button>
+      </view> 
+  </view> 
+</view> 
+ 
+<!-- 名片页面 --> 
+<view class="card" wx:if="{{current==0}}"> 
+  <view class="{{isIPX ? 'bj-IPX' : 'bj'}}">
+    <view class="bjtp">
+      <image src="{{cover}}" class="tx" mode='aspectFill'></image> 
+    </view>
+    <view class="business"> 
+      <view class="introduce"> 
+        <view class="uName"> 
+          <image src="../../res/imgs/zc.png" class="companyImg"></image>
+          <text>{{companyName}}</text>  
+        </view> 
+        <view class="position"> 
+          <text class="company">{{name}}</text> 
+          <text class="companyPosition">{{companyPosition}}</text>
+        </view> 
+        <view class="twoButton" id='plm'> 
+          <button class="exchange" bindtap='sharepyq' data-statu="open" canvas-id='canvasids'>分享名片</button> 
+          <button class="information" bindtap="addPhone">存入通讯录</button> 
+        </view> 
+        <view class="drawer_screen" bindtap="sharepyq" data-statu="close" wx:if="{{showShareStatus}}"></view>
+        <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showShareStatus}}">
+          <!--drawer content-->
+          <view class="drawer_content">
+            <button class="shareItem" open-type='share' bindtap='click' canvas-id='shareCanvasa'>
+              <image src="../../res/imgs/weixin.png"></image>
+              <text>分享给好友</text>
+            </button>
+            <view class="shareItem" bindtap='ewshow' canvas-id='canvasids'>
+              <image src="../../res/imgs/pengyouquan.png" id='pengyouquan'></image>
+              <text>名片海报</text>
+            </view>
+          </view>
+        </view>
+      </view> 
+    </view> 
+  </view>
+ 
+  <view class="contact"> 
+    <view class="container">
+    <!-- tab导航栏 -->
+    <!-- scroll-left属性可以控制滚动条位置 -->
+    <!-- scroll-with-animation滚动添加动画过渡 -->
+      <scroll-view scroll-x="true" class="anav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+        <block wx:for="{{tabData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+            <view class="nav-item {{currentTab == idx ?'active':''}}" data-idx="{{idx}}" bindtap="switchNav" data-text="{{navItem.text}}">
+              <image src="{{navItem.img}}" id="tabimg"></image>
+              <text class="hdText">{{navItem.text}}</text>
+            </view>
+        </block>        
+      </scroll-view>
+    </view>
+    <view class="browse"> 
+      <view class="muchPerson"> 
+        <image wx:for="{{browseUrl}}" src="{{item.cover?item.cover:'../../res/imgs/morentouxiang.jpg'}}"></image>
+        <text>{{browse}}人浏览</text> 
+      </view> 
+      <view wx:for="{{list}}" wx:key="key" wx:for-item="item" wx:for-index="index" class="reliable" hover-class="hover_praise" data-curIndex="{{index}}" bindtap="praiseThis"> 
+        <text>靠谱 {{likeNum}}</text> 
+        <image wx:if="{{isShow}}" src="../../res/imgs/dz3.png"></image> 
+        <image wx:else src='../../res/imgs/dz.png'></image>
+      </view> 
+    </view> 
+  </view> 
+  <view class="introduction"> 
+    <view class="introduction_ti"> 
+      <image src="../../res/imgs/gerenjj.png" class="imag1"></image> 
+    </view> 
+    <view class="intro_content"> 
+      <view>
+        <text>{{introText}}</text>
+      </view>
+    </view> 
+  </view> 
+  <view class="{{isIPX ? 'qqq-IPX' : 'qqq'}}"></view> 
+  <view class='tsbgbox' wx:if='{{twoshow}}'>
+    <view class='tsbg' bindtap='ewhiden'></view>
+    <canvas class="{{isIPX ? 'cavbox-IPX' : 'cavbox'}}" canvas-id="shareCanvas"></canvas>
+    <view bindtap='save' class="{{isIPX ? 'savebtn-IPX' : 'savebtn'}}">保存海报</view>
+  </view>
+
+  <view class='tsbgboxa' wx:if='{{asd}}'>
+    <view class='tsbga' bindtap='ewhidena'></view>
+    <canvas class="{{isIPX ? 'cavboxa-IPX' : 'cavboxa'}}" canvas-id="shareCanvasa"></canvas>
+  </view>
+</view> 
+ 
+<!-- 报价页面 --> 
+<view class="bjheader" wx:if="{{current==1}}"> 
+  <my-component my-property='{{bb}}' id="website"/> 
+  <view class="{{isIPX ? 'contentaaaaa-IPX' : 'contentaaaaa'}}">
+    <view class="zzbj"> 
+    <view class="zzlist"> 
+      <view class="item" wx:for="{{category}}" bindtap="goQuotation" data-postid="{{item.id}}"> 
+        <image src="{{item.cover}}"></image> 
+        <text class='baojiamingzi'>{{item.typeName}}</text> 
+      </view>
+    </view>
+  </view> 
+  <view class="zzperson"> 
+    <image src="../../res/imgs/baojilb_Jc.png"></image> 
+    <view class="howmuch"> 
+      <text>已有</text> 
+      <text class="personNum">{{headcount}}</text> 
+      <text>人参加了自助报价</text> 
+    </view> 
+  </view> 
+  <view class="zxbj" bindtap="goNewOffer"> 
+    <view class="newbj"> 
+      <text class="new">最新</text> 
+      <text>报价</text> 
+    </view> 
+      <swiper class="app" vertical="true" autoplay="true" duration="2000" circular="true" interval="5000">
+        <block wx:for="{{msgList}}">
+            <swiper-item>
+              <view class="swiper_item" data-id="{{item.orderModuleId}}">{{item.nickName}}</view>
+            </swiper-item>
+        </block>
+      </swiper>
+      <image src="../../res/imgs/goright.png" class="asdimg"></image> 
+  </view> 
+  <view class="process"> 
+    <text class="processtitle">自助报价流程</text> 
+    <view class="contain">
+    <!-- tab导航栏 -->
+    <!-- scroll-left属性可以控制滚动条位置 -->
+    <!-- scroll-with-animation滚动添加动画过渡 -->
+      <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+        <block wx:for="{{bjData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+            <view class="nav-item {{currentTab == idx ?'active':''}}"  data-current="{{idx}}" bindtap="switchNav">
+              <image src="{{navItem.img}}" class="bjimg"></image>
+                <view class="plm">
+                  <text class="containText">{{navItem.text}}</text>
+                </view>          
+            </view>
+            <text class="asd"></text>
+        </block>        
+      </scroll-view>
+    </view>
+  </view> 
+  <view class="cjquestion"> 
+    <view class="ques"> 
+      <text class="question1">新闻资讯</text> 
+      <text class="morquestion" bindtap='gonews'>更多 >></text> 
+    </view> 
+    <view class="questionList" wx:for="{{question}}" bindtap='goquestiona' data-id="{{item.id}}"> 
+      <view class='questionTitle_time_guanfang'>
+        <text class='questionTitle'>{{item.title}}</text>
+        <view class='questionTime_guanfang'>
+          <text class='questionTime'>{{item.gmtCreate}}</text>
+          <text class='guanfang'>官方</text>
+        </view>
+      </view>
+      <view class='questionImage'>
+        <image src="{{item.cover?item.cover:'../../res/imgs/touxaing.jpeg'}}"></image>
+      </view>
+    </view> 
+  </view> 
+  <view class="qwe"> 
+   
+  </view> 
+  </view>
+</view> 
+ 
+<!-- 商城页面 --> 
+<view class="shop" wx:if="{{current==2}}">
+  <my-component my-property='{{dd}}' id="website"/> 
+<view class="{{isIPX ? 'contentaaaa-IPX' : 'contentaaaa'}}">
+  <view class='introduct'>
+    <view class='introductTitle'>
+      <image src='../../res/imgs/zuoshu.png'></image>
+      <text class='pjianjie'>公司简介</text>
+    </view>
+    <view class='neirongtext'>
+      <text class='jianjieneirong'>杭州湛程网络科技有限公司，是一家专业从事移动互联网软件开发与外包的服务性公司，提供从产品需求调研，设计，研发，售后，运维整套解决方案；我们秉承用高科技驱动商业创新的理念，在为超过100+家企业提供技术服务。我们的产品融合移动研发、云计算、大数据和人工智能等高新技术，让企业零门槛使用高新技术驱动商业创新。
+
+  公司立足于IT服务产业，致力于IT外包的高质量服务与运营。已经为多家企事业单位提供了专业优质的服务，并受到了一致的好评。企业秉承“为合作伙伴创造价值”的核心价值观，并以“诚实、宽容、创新、服务”为企业精神，通过自主创新和真诚合作为电子商务及信息服务行业创造价值。</text>
+    </view>
+  </view>
+  <view class='yewuLeixing'>
+    <view class='yewufanwei'>
+      <view class="parent">
+        <view class="child"></view>
+      </view>
+      <text>业务范围</text>
+    </view>
+    <view class='fourYewu'>
+      <image src='../../res/imgs/websitePhone.png'></image>
+      <text class='title'>APP开发</text>
+      <text class='content'>电商医疗、社交、金融、服务、短视频、直播平台棋牌游戏、定制开发...</text>
+      <!-- <view class='twoButton'>
+        <text>查看案例</text>
+        <text>了解详情</text>
+      </view> -->
+    </view>
+    <view class='fourYewu'>
+      <image src='../../res/imgs/xiaochegnxu.png'></image>
+        <text class='title'>小程序开发</text>
+        <text class='content'>微信小程序、百度小程序、支付宝小程序、微商城点餐、外卖、到店、平台服务、旅游、健身、模板开发、定制开发...</text>
+      <!-- <view class='twoButton'>
+        <text>查看案例</text>
+        <text>了解详情</text>
+      </view> -->
+    </view>
+    <view class='fourYewu'>
+      <image src='../../res/imgs/h5.png'></image>
+      <text class='title'>PC网站/H5开发</text>
+      <text class='content'>企业官网、金融、电商、短视频、医疗平台、服务、模板开发、定制开发...</text>
+      <!-- <view class='twoButton'>
+        <text>查看案例</text>
+        <text>了解详情</text>
+      </view> -->
+    </view>
+    <view class='fourYewu'>
+      <image src='../../res/imgs/qita.png'></image>
+      <text class='title'>其他业务</text>
+      <text class='content'>图文设计、系统运维托管、二次开发、代码维护、模板开发、定制开发...</text>
+      <!-- <view class='twoButton'>
+        <text>查看案例</text>
+        <text>了解详情</text>
+      </view> -->
+    </view>
+  </view>
+  <!-- 发展历程 -->
+  <view class='fazhanlicheng'>
+    <view class='neirong'>
+      <view class='introductTitle'>
+        <image src='../../res/imgs/zuoshu.png'></image>
+        <text class='pjianjie'>发展历程</text>
+      </view>
+      <view class='licheng'>
+        <view class='xuxian'></view>
+        <view class='nianxian_content'>
+          <view class='suibianba'>
+            <view class='yuan'></view>
+            <text class='year'>2019年10月</text>
+            <text class="bzdneirong">湛程小程序上线，查看案例、购买产品更方便</text>
+          </view>
+          <view class='suibianba'>
+            <view class='yuan'></view>
+            <text class='year'>2019年09月</text>
+            <text class="bzdneirong">分公司华企互联网科技有限公司成立</text>
+          </view>
+          <view class='suibianba'>
+            <view class='yuan'></view>
+            <text class='year'>2019年08月</text>
+            <text class="bzdneirong">公司办公地址从余杭区搬到西湖区</text>
+          </view>
+          <view class='suibianba'>
+            <view class='yuan'></view>
+            <text class='year'>2019年06月</text>
+            <text class="bzdneirong">累计服务客户超过100家</text>
+          </view>
+          <view class='suibianba'>
+            <view class='yuan'></view>
+            <text class='year'>2018年10月</text>
+            <text class="bzdneirong">杭州湛程网络科技有限公司成立</text>
+          </view>
+          <view class='suibianba'>
+            <view class='yuan'></view>
+            <text class='year'>2019年03月</text>
+            <text class="bzdneirong">湛程工作室成立，急急令技术部原班人马</text>
+          </view>
+          <view class='suibianba'>
+            <view class='yuan'></view>
+            <text class='year'>2019年02月</text>
+            <text class="bzdneirong">急急令APP上线</text>
+          </view>
+          <view class='suibianba'>
+            <view class='yuan'></view>
+            <text class='year'>2017年10月</text>
+            <text class="bzdneirong">杭州急急令公司成立，湛程公司前身</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 办公环境 -->
+  <view class='huodong'>
+    <view class='lichengtitle'>
+      <view class='yewufanwei'>
+        <view class="parent">
+          <view class="child"></view>
+        </view>
+        <text class='huodongTitle'>办公环境</text>
+      </view>
+      <view class='huodongNeirong'>
+        <text>空间共享、资源共享、创业新时代</text>
+      </view>
+      <view class='pictureWall'>
+        <image src='../../res/imgs/bangonghuanjing1_Jc.jpg'></image>
+        <image src='../../res/imgs/bangonghuanjing2_Jc.jpg'></image>
+        <image src='../../res/imgs/bangonghuanjing3_Jc.jpg'></image>
+        <image src='../../res/imgs/bangonghuanjing4_Jc.jpg'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 我们的团队 -->
+  <view class='ourTeamBufen'>
+    <view class='introductTitle'>
+      <image src='../../res/imgs/zuoshu.png'></image>
+      <text class='pjianjie'>我们的团队</text>
+    </view>
+    <text class='ourTeam'>
+      我们的小伙伴儿们是一群来自五湖四海的90后创业者，我们有梦想有追求我们也期待更多年轻的创业伙伴加入我们、一起奋斗、一起成长!\n\n我们提供良好切舒适的办公环境，优越的员工福利待遇，吸引了许多经验丰富的技术成员，研发更优质的企业产品。并且，我们极为重视团队协作氛围通过丰富的团队团建活动，让团队成员之间的沟通更加透明高效、协作流畅\n\n此外，我们拥有着完善的员工培养计划，定期开展企业文化活动对员工进行知识体系的深化培训、让每一位团队成员都能深挖自己的潜力，取长补短，极大发挥团队或做力量\n\n我们要用技术实力宣告，用更少的时间更少的人力、更完善的技术支撑、更富创意的解决方案，实现改变世界的产品！
+    </text>
+  </view>
+
+  <!-- 团队活动 -->
+  <view class='huodong'>
+    <view class='lichengtitle'>
+      <view class='yewufanwei'>
+        <view class="parent">
+          <view class="child"></view>
+        </view>
+        <text class='huodongTitle'>团队活动</text>
+      </view>
+      <view class='huodongNeirong'>
+        <text decode='{{true}}'>乐观向上&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;永不言败</text>
+      </view>
+      <view class="containera">
+        <scroll-view scroll-x="true" class="navav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+            <block wx:for="{{navDatass}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+                <view class="nav-itemav {{currentTab == idx ?'active':''}}"  data-current="{{idx}}" bindtap="switchNav">
+                  <image src='{{navItem.text}}'></image>
+                </view>
+            </block>        
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 底部 -->
+  <view class="bottom">
+    <view class='yewufanwei'>
+      <image src='../../res/imgs/diyigetubiao.png'></image>
+      <text class='huodongTitle'>联系我们</text>
+    </view>
+    <view class='gongsidizhi' bindtap='gongsidizhi'>
+      <text class='dizhiName'>公司地址</text>
+      <view class='jutidizhi_img'>
+        <text class='jutidizhi'>地址：浙江省杭州市西湖区万塘路262号万塘汇南楼5楼氪空间</text>
+        <text class='dizhishu'>|</text>
+        <image src='../../res/imgs/dizhitubiao.png' class='dizhitubiao'></image>
+      </view>
+    </view>
+    <view class='gongsidizhi' bindtap='guanwangdibu'>
+      <text class='dizhiName'>联系电话</text>
+      <view class='jutidizhi_img'>
+        <text class='jutidizhi'>电话：400-992-5090</text>
+        <text class='dizhishu'>|</text>
+        <image src='../../res/imgs/dianhuatubiao.png' class='dianhuatubiao'></image>
+      </view>
+    </view>
+  </view>
+  <view class="{{isIPX ? 'guanwangdibu-IPX' : 'guanwangdibu'}}"></view>
+</view>
+</view> 
+ 
+ 
+<!-- 案例页面 --> 
+<view class="case" wx:if="{{current==3}}"> 
+  <view class="fw">
+    <my-component my-property='{{cc}}' class="plma"/> 
+    <!-- 搜索框 --> 
+    <view class="ss"> 
+      <view> 
+        <input type="text" class="caseInput" placeholder-style="color:#D3D3D3;" placeholder="搜索案例" bindinput="search" confirm-type="search" bindconfirm="bindconfirm"></input> 
+        <image src="../../res/imgs/anli (1).png" class="caseSearch"></image> 
+      </view> 
+      <view class="alCompany" bindtap="goWebsite"> 
+        <image src="../../res/imgs/anli (2).png"></image> 
+        <text>进入官网</text> 
+      </view> 
+    </view> 
+    <view class="all"> 
+      <view class="allIn"> 
+        <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+        <text class='{{num==0?"active":""}}' data-num='0' bindtap="changeOil">全部</text>
+          <block wx:for="{{firstCase}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+              <text class='{{num==item.bid?"active":""}}' data-tid="{{item.tid}}" data-num='{{item.bid}}' bindtap="changeOil">{{item.labelName}}</text>
+          </block>   
+        </scroll-view>
+
+      </view> 
+    </view> 
+    <view class="flList"> 
+      <scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
+        <text class='{{size==0?"active":""}}' data-size='0' bindtap="changeFl">全部</text>
+          <block wx:for="{{secondCase}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+              
+              <text class='{{size==item.bid?"active":""}}' catchtap='changeFl' data-size='{{item.bid}}'>{{item.labelName}}</text>
+          </block>   
+        </scroll-view>
+    </view> 
+  </view>
+  <view class="{{isIPX ? 'navi-bar-view-IPX' : 'navi-bar-view'}}"> 
+    <view class="anliItem" wx:for="{{anliList}}" bindtap="goCaseDetails" data-cid="{{item.cid}}"> 
+      <image src="{{item.cover}}" class="itemImage"></image> 
+      <view class="Item"> 
+        <text class="title">{{item.name}}</text>
+        <wxs src="../../app.wxs" module="app"/>
+        <view class='caseAttrName'>
+          <!-- <text id="biaoqian" wx:for="{{item.attrName}}" wx:for-item="attrName">{{attrName}}</text> -->
+          <view class='caseAttra'>
+            <text wx:for="{{app.getTags(item.attrName)}}" wx:if="{{index<3}}">{{item}}</text>
+          </view>
+          <view class='caseAttr'>
+            <text wx:for="{{app.getTags(item.attrValue)}}" wx:if="{{index<3}}">{{item}}</text>
+          </view>
+        </view>
+        <view class="pricea"> 
+          <text class='priceaTitle'>价格</text>
+          <text class="muchPrice">￥{{item.price}}</text> 
+        </view> 
+      </view> 
+    </view> 
+  </view> 
+  <view class="aaa"></view> 
+</view> 
+ 
+ 
+<!-- 我的页面 --> 
+<view class='header' wx:if="{{current==4}}"> 
+  <view class='header-img'> 
+    <image src='../../res/imgs/header_img.png'></image> 
+    <view class='portrait'> 
+      <view class="zxc">
+        <open-data type="userAvatarUrl" class="weixintx"></open-data>
+      </view>
+      <open-data type="userNickName" lang="zh_CN" class="mingzi"></open-data> 
+    </view> 
+  </view> 
+ 
+  <view class='youhuiquan'> 
+    <!-- <button class='coupon' bindtap="goCoupon"> 
+      <image src='../../res/imgs/question3.png' id="you"></image> 
+      <text>我的优惠券</text> 
+      <view class='yjt'></view>
+    </button>  -->
+    <button class='coupon' bindtap="goCollection"> 
+      <image src='../../res/imgs/question2.png'></image> 
+      <text>我的收藏</text> 
+      <view class='yjt'></view>
+    </button> 
+    <button class='coupon' bindtap="goQuestion"> 
+      <image src='../../res/imgs/question1.png'></image> 
+      <text>常见问题</text> 
+      <view class='yjt'></view>
+    </button> 
+    <button class='coupon' bindtap="conversation" open-type="contact"> 
+      <image src='../../res/imgs/question4.png'></image> 
+      <text>在线客服</text> 
+      <view class='yjt'></view>
+    </button>
+  </view>
+  <view class="businessCards">
+    <text class='card' style='display:{{cardDisplay}}'>没有我的名片？赶紧去创建</text>
+    <view class="businessButton" bindtap="{{dianji}}">{{businessCards}}</view>
+    <view class="businessButtonTwo" style='display:{{youDisplay}}' bindtap="updateMycard">修改我的名片</view>
+  </view>
+  <view class="{{isIPX ? 'ppp-IPX' : 'ppp'}}"></view>
+</view> 
+

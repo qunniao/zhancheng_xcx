@@ -1,0 +1,61 @@
+<my-component my-property='{{cc}}' class="plma"/>
+<view class='bj'>
+  <view class='contact'>
+    <text>联系人</text>
+    <input type='text' value='{{contact}}' placeholder='请填写收货人的姓名' bindinput='getContent' placeholder-class="placeholderStyle"></input>
+  </view>
+</view>
+<view class='bj'>
+  <view class='contact'>
+    <text>手机号</text>
+    <input type='text' value='{{phone}}' placeholder='请填写收货人的联系电话' bindinput='getPhone' placeholder-class="placeholderStyle"></input>
+  </view>
+</view>
+<view class='bj' id='third'>
+  <view class='contact' bindtap='translate'>
+    <text>收货地址</text>
+    <text class='address'>{{address}}</text>
+  </view>
+</view>
+<view class='bj'>
+  <view class='contact'>
+    <text>设为默认地址</text>
+    <switch checked bindchange="switchChange" wx:if="{{isDefaultAddress==true}}"/>
+    <switch bindchange="switchChange" wx:else/>
+  </view>
+</view>
+<view class='bj' style='display:{{display}}' bindtap='delete'>
+  <view class='contact' id='shanchu'>
+    <text>删除收货地址</text>
+  </view>
+</view>
+       
+<view class="animation-element-wrapper" animation="{{animation}}" style="visibility:{{show ? 'visible':'hidden'}}" bindtap="hiddenFloatView" data-id="444">
+  <view class="animation-element" catchtap="nono">
+    <text class="left-bt" catchtap="hiddenFloatView" data-id="555">取消</text>
+    <text class="right-bt" catchtap="hiddenFloatView" data-id="666">确定</text>
+      <view class="line"></view>
+
+    <picker-view indicator-style = "height: 50rpx;" value="{{value}}" bindchange="bindChange" catchtap="nono">
+    <!--省-->
+    <picker-view-column>
+        <view wx:for="{{provinces}}" wx:for-item="sheng" wx:key="">
+          {{sheng.name}}
+      </view>
+    </picker-view-column>
+    <!--地级市-->
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="">
+        {{item.name}}
+      </view>
+    </picker-view-column>
+    <!--区县-->
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="">
+        {{item.name}}
+      </view>
+    </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+<button bindtap='{{queding}}'>确定</button>

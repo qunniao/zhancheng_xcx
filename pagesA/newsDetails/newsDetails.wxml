@@ -1,0 +1,11 @@
+<my-component my-property='{{bb}}' />
+<view class='header'>
+  <text class='title'>{{title}}</text>
+  <view class='company_time'>
+    <text class='company'>湛程</text>
+    <text class='time'>{{gmtCreate}}</text>
+  </view>
+</view>
+<view class='editor'>
+  <rich-text class='newcontents' nodes='{{content}}'></rich-text>
+</view>

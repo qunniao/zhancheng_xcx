@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/custom/custom"
+  ],
+  "subpackages": [
+    {
+      "root": "pagesA",
+      "pages": [
+        "moreShop/moreShop",
+        "coupon/coupon",
+        "puestion/question",
+        "collection/collection",
+        "quotation/quotation",
+        "customized/customized",
+        "totalPrice/totalPrice",
+        "details/details",
+        "conversition/conversition",
+        "search/search",
+        "confirm/confirm",
+        "caseDetails/caseDetails",
+        "businessCards/businessCards",
+        "textarea/textarea",
+        "newOffer/newOffer",
+        "offerDetails/offerDetails",
+        "address/address",
+        "addressList/addressList",
+        "news/news",
+        "newsDetails/newsDetails"
+      ],
+      "preloadRule": {
+        "pages/index": {
+          "network": "all",
+          "packages": [
+            "__APP__"
+          ]
+        }
+      }
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

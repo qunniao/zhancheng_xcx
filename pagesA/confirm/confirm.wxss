@@ -1,0 +1,295 @@
+page{
+  background: #F2F2F2;
+}
+
+.address{
+  width: 94%;
+  margin-left: 3%;
+  padding: 30rpx 0;
+}
+
+.address text{
+  font-size: 34rpx;
+  line-height: 50rpx;
+  color: #797777;
+  font-weight: bold;
+  padding-left: 10rpx;
+  letter-spacing: 2rpx;
+}
+
+.right{
+  border: solid #797777;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.name_phone_address{
+  width: 94%;
+  height: 200rpx;
+  margin-left: 3%;
+  margin-bottom: 30rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.name_phone_address image{
+  width: 60rpx;
+  height: 80rpx;
+  margin-left: 30rpx;
+}
+
+.name_phone_address .ri{
+  display: flex;
+  flex-direction: column;
+}
+
+.name_phone_address .ri .name_phone{
+  display: flex;
+  margin-left: 30rpx;
+}
+
+.name_phone_address .ri .name_phone .name{
+  font-size: 34rpx;
+  color: #333;
+}
+
+.name_phone_address .ri .name_phone .phone{
+  font-size: 24rpx;
+  color: #868484;
+  font-weight: bold;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+}
+
+.qwe{
+  display: flex;
+}
+
+.addr{
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 30rpx;
+  position: relative;
+  top: -20rpx;
+  padding-right: 50rpx;
+}
+
+.rightb{
+  border: solid #7B7A7A;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  position: absolute;
+  right: 50rpx;
+}
+
+.orderItem{
+  width: 94%;
+  margin-left: 3%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.img_name_price{
+  display: flex;
+}
+
+.img_name_price image{
+  width: 200rpx;
+  height: 180rpx;
+  border-radius: 20rpx;
+  margin: 30rpx 20rpx 0 30rpx;
+}
+
+.img_name_price .name{
+  font-size: 32rpx;
+  font-weight: 400;
+  margin-top: 30rpx;
+}
+
+.img_name_price .num{
+  font-size: 22rpx;
+  margin-left: 100rpx;
+  margin-top: 30rpx;
+}
+
+.img_name_price .price{
+  font-size: 30rpx;
+  position: absolute;
+  font-weight: 400;
+  right: 50rpx;
+  margin-top: 30rpx;
+}
+
+.coupon{
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  position: relative;
+}
+
+.coponName{
+  font-size: 32rpx;
+  font-weight: bold;
+  padding-left: 20rpx;
+  letter-spacing: 2rpx;
+}
+
+.rigth{
+  height: 40rpx;
+  line-height: 40rpx;
+  display: flex;
+  background: linear-gradient(to right, #ED7835 , #EB502E);
+  font-size: 22rpx;
+  color: #fff;
+  position: absolute;
+  right: 50rpx;
+  top: 30rpx;
+  padding: 0 10rpx;
+}
+
+.rigth image{
+  width: 40rpx;
+  height: 35rpx;
+  margin-top: 4rpx;
+}
+
+.righta{
+  border: solid #7B7A7A;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  position: absolute;
+  right: 20rpx;
+  top: 40rpx;
+}
+
+
+.totalPrice{
+  height: 80rpx;
+  line-height: 80rpx;
+  float: right;
+  position: relative;
+}
+
+.totalPrice .price{
+  position: absolute;
+  right: 20rpx;
+  font-size: 26rpx;
+}
+
+.money{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.payment{
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+}
+
+.payment text{
+  font-size: 40rpx;
+  color:#F33914;
+  font-weight: bold;
+  padding-left: 20rpx;
+}
+
+#offer{
+  font-size: 26rpx;
+  color: #A3A1A1;
+  position: relative;
+  top: -6rpx;
+}
+
+#pay{
+  position: absolute;
+  right: 30rpx;
+  top: 20rpx;
+  background: linear-gradient(to right,#F45E30, #F3320E);
+  padding: 0 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-weight: bold;
+  font-size: 36rpx;
+  border-radius: 40rpx;
+}
+
+.drawer_attr_box{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  overflow: hidden;
+  background: #F7F7F7;
+  padding-bottom: 20rpx;
+}
+
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.couponItem{
+  width: 94%;
+  margin-top: 20rpx;
+  margin-left: 3%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.couponItem .left{
+  width: 30%;
+  padding: 30rpx 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.amount{
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #FB705F;
+}
+
+.realPrice{
+  font-size: 26rpx;
+  color: #8E8E8E;
+  margin-top: 10rpx;
+}
+
+.couponItem .righ{
+  width: 70%;
+}
+
+.couponItem .righ text{
+  font-size: 26rpx;
+  color: #8E8E8E;
+}

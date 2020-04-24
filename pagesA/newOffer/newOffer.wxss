@@ -1,0 +1,83 @@
+page{
+  background: #F4F4F4;
+}
+
+.offerItem{
+  width: 100%;
+  background: #fff;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.offerItem:last-child{
+  margin-bottom: 30rpx;
+}
+
+.image_name_time{
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.image_name_time image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  margin-left: 30rpx;
+}
+
+.image_name_time .name{
+  font-size: 30rpx;
+  color: #3B3B3B;
+  padding-left: 10rpx;
+  position: relative;
+  width: 47%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.image_name_time .time{
+  font-size: 24rpx;
+  color: #A5A4A4;
+  position: absolute;
+  right: 30rpx;
+}
+
+.leimu_num_price{
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.leimu_num_price .leimu{
+  position: relative;
+  margin-left: 30rpx;
+}
+
+.leimu_num_price .price{
+  position: absolute;
+  right: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.leimu_num_price .num{
+  margin-left: 80rpx;
+}
+
+.leimu_num_price text{
+  font-size: 28rpx;
+  color: #858584;
+  position: relative;
+}
+
+#number{
+  color: #307BF6;
+}

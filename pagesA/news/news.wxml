@@ -1,0 +1,13 @@
+<my-component my-property='{{bb}}' class="component"/>
+<view class="questionList" wx:for="{{question}}" bindtap='goCase' data-id="{{item.id}}"> 
+  <view class='questionTitle_time_guanfang'>
+    <text class='questionTitle'>{{item.title}}</text>
+    <view class='questionTime_guanfang'>
+      <text class='questionTime'>{{item.gmtCreate}}</text>
+      <text class='guanfang'>官方</text>
+    </view>
+  </view>
+  <view class='questionImage'>
+    <image src="{{item.cover?item.cover:'../../res/imgs/touxaing.jpeg'}}"></image>
+  </view>
+</view> 

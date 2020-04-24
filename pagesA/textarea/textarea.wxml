@@ -1,0 +1,5 @@
+<my-component my-property='{{bb}}' /> 
+<textarea name="bindTextAreaBlur" bindblur="getText" value='{{introText}}' bindinput="getValueLength" show-confirm-bar='true' bindconfirm="getText"  maxlength="{{max}}" minlength="{{min}}"auto-focus>   
+</textarea>
+<view class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</view>
+<view class="submit" bindtap="submit">确认</view>

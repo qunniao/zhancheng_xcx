@@ -1,0 +1,31 @@
+textarea{
+  width: 90%;
+  height: 300rpx;
+  font-size: 26rpx;
+  color: #585757;
+  margin-left: 5%;
+  margin-top: 20rpx;
+  position: relative;
+}
+
+.currentWordNumber{
+  font-size: 26rpx;
+  color: #C1BFBF;
+  position: absolute;
+  right: 5%;
+  top: 500rpx;
+}
+
+.submit{
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #307BF6;
+  border-radius: 30rpx;
+  position: absolute;
+  right: 5%;
+  top: 550rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 26rpx;
+}

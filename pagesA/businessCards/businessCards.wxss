@@ -1,0 +1,108 @@
+page {
+  background: #EDE9E9;
+}
+
+.firstForm{
+  background: #fff;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.edit-list{
+  display: flex;
+  width: 92%;
+  height: 150rpx;
+  line-height: 150rpx;
+  margin-left: 4%;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #F3F1F1;
+}
+
+.edit-list .list-name{
+  position: absolute;
+  left: 0;
+  font-size: 30rpx;
+  color: #585757;
+}
+
+.head-portrait{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 0;
+  top: 35rpx;
+  border-radius: 10rpx;
+}
+
+.input{
+  width: 92%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-left: 4%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-bottom: 1px solid #F3F1F1;
+}
+
+.input:nth-child(4){
+  border: 0;
+}
+
+.input:last-child{
+  border: 0;
+}
+
+#first{
+  border: 0;
+}
+
+#second{
+  border-bottom: 1px solid #F3F1F1;
+}
+
+.input text{
+  font-size: 30rpx;
+  color: #585757;
+}
+
+.input input{
+  width: 75%;
+  height: 100%;
+  position: absolute;
+  right: 5%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+
+button{
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #307BF6;
+  border-radius: 40rpx;
+  margin-left: 5%;
+  color: #fff;
+  margin-top: 70rpx;
+}
+
+.arrow{
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  position: absolute;
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.address{
+  width: 70%;
+  margin-left: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
